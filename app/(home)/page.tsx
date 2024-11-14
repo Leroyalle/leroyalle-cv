@@ -1,3 +1,9 @@
+import { Container, MainInfo } from '@/components/shared';
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <Container>
+      <MainInfo />
+    </Container>
+  );
 }

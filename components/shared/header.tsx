@@ -16,13 +16,20 @@ export const Header: React.FC<Props> = ({ className }) => {
           <img src="/img/logo.jpg" alt="Logo" className="w-full h-full" />
         </Link>
         <div className="flex items-center gap-x-3">
-          <ul className="flex items-center gap-x-3">
-            <li>
-              <Link className="p-3" href="/projects">
-                Projects
-              </Link>
-            </li>
-          </ul>
+          <nav>
+            <ul className="flex items-center gap-x-1">
+              <li>
+                <Link className="p-3" href="/projects">
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <a className="p-3" href="https://github.com/Leroyalle" target="_blank">
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </nav>
           <Moon />
         </div>
       </Container>
