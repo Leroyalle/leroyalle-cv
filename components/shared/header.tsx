@@ -21,7 +21,7 @@ export const Header: React.FC<Props> = ({ className }) => {
             <ul className="flex items-center gap-x-1">
               <li>
                 <Link className="p-3" href="/projects">
-                  Projects
+                  Проекты
                 </Link>
               </li>
               <li>

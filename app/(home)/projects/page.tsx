@@ -1,10 +1,15 @@
-import { Container } from '@/components/shared';
-// import { prisma } from '@/prisma/prisma-client';
+import { Container, ProjectList } from '@/components/shared';
+import { prisma } from '@/prisma/prisma-client';
 
 export default async function Projects() {
+  const projects = await prisma.project.findMany({
+    include: {
+      tech: true,
+    },
+  });
   return (
-    <Container className="max-w-[600px]">
-      <h1>Projects</h1>
+    <Container className="max-w-[800px]">
+      <ProjectList projects={projects} />
     </Container>
   );
 }

@@ -17,7 +17,34 @@ model Skill {
   createdAt DateTime @default(now())
 }
 
+model Project {
+  id               Int         @id @default(autoincrement())
+  name             String
+  imageUrl         String
+  type             ProjectType
+  shortDescription String
+  tech             Tech[]
+  createdAt        DateTime    @default(now())
+}
+
+model ProjectItem {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+}
+
+model Tech {
+  id        Int       @id @default(autoincrement())
+  name      String
+  projects  Project[]
+  createdAt DateTime  @default(now())
+}
+
 enum Category {
+  Frontend
+  Backend
+}
+
+enum ProjectType {
   Frontend
   Backend
 }
