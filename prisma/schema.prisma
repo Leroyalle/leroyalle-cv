@@ -18,17 +18,25 @@ model Skill {
 }
 
 model Project {
-  id               Int         @id @default(autoincrement())
+  id               Int          @id @default(autoincrement())
   name             String
   imageUrl         String
-  type             ProjectType
   shortDescription String
-  tech             Tech[]
-  createdAt        DateTime    @default(now())
+  techs            Tech[]
+  projectItem      ProjectItem?
+  createdAt        DateTime     @default(now())
 }
 
 model ProjectItem {
-  id        Int      @id @default(autoincrement())
+  id Int @id @default(autoincrement())
+
+  about        String
+  featuresList String
+  link         String
+  github       String
+  project      Project @relation(fields: [projectId], references: [id])
+  projectId    Int     @unique
+
   createdAt DateTime @default(now())
 }
 
@@ -40,11 +48,6 @@ model Tech {
 }
 
 enum Category {
-  Frontend
-  Backend
-}
-
-enum ProjectType {
   Frontend
   Backend
 }

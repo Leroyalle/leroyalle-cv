@@ -1,5 +1,6 @@
-import { Project, Tech } from '@prisma/client';
+import { Project, ProjectItem, Tech } from '@prisma/client';
 
 export type ProjectWithRelations = Project & {
-  tech: Tech[];
+  techs: Tech[];
+  projectItem: ProjectItem | null;
 };
