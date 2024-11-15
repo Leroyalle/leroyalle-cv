@@ -2,7 +2,7 @@ import { Header } from '@/components/shared';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Nicholas Melonov | Home',
+  title: 'Nicholas Melonov | Frontend Developer',
   description: 'Портфолио Frontend-разработчика Nicholas Melonov',
 };
 
