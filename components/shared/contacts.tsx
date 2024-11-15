@@ -14,7 +14,7 @@ export const Contacts: React.FC<Props> = ({ className }) => {
           {contactsData.map((contact, i) => (
             <li key={i}>
               <a
-                className="flex gap-x-1 text-[12px] 2xl:text-lg items-center text-foreground/70"
+                className="flex gap-x-1 text-[12px] 2xl:text-sm items-center text-foreground/70"
                 href={contact.link}>
                 <contact.icon size={15} />
                 {contact.title}

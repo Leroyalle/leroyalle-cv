@@ -1,11 +1,11 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { Title } from './title';
 import { SkillsItem } from './skills-item';
+import { Skill } from '@prisma/client';
 
 interface Props {
   title: string;
-  items: any;
+  items: Skill[];
   className?: string;
 }
 

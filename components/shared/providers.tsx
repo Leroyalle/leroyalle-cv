@@ -1,5 +1,6 @@
 import React from 'react';
 import NextTopLoader from 'nextjs-toploader';
+import { Background } from './background';
 
 interface Props {
   children: React.ReactNode;
@@ -8,7 +9,7 @@ interface Props {
 export const Providers: React.FC<Props> = ({ children }) => {
   return (
     <>
-      {children}
+      <Background>{children}</Background>
       <NextTopLoader />
     </>
   );

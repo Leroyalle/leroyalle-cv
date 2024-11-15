@@ -6,3 +6,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Skill {
+  id Int @id @default(autoincrement())
+
+  name     String
+  imageUrl String
+  category Category
+
+  createdAt DateTime @default(now())
+}
+
+enum Category {
+  Frontend
+  Backend
+}
