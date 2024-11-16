@@ -8,9 +8,9 @@ interface Props {
 
 export const SkillsItem: React.FC<Props> = ({ imageUrl, name }) => {
   return (
-    <Tooltip>
+    <Tooltip delayDuration={300}>
       <TooltipTrigger asChild>
-        <div className="w-[50px] h-[50px] rounded-md overflow-hidden">
+        <div className="w-[50px] h-[50px] rounded-2xl overflow-hidden bg-white">
           <img
             src={imageUrl}
             alt={name}

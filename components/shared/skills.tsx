@@ -10,9 +10,6 @@ interface Props {
 }
 
 export const Skills: React.FC<Props> = ({ items, className }) => {
-  if (!items || items.length === 0) {
-    return null;
-  }
   return (
     <section className={cn('flex flex-col gap-y-3', className)}>
       <TooltipProvider>
@@ -20,8 +17,13 @@ export const Skills: React.FC<Props> = ({ items, className }) => {
           title={'Frontend'}
           items={items.filter((item) => item.category === 'Frontend')}
           className="mb-4"
+          motionDelay={0.2}
         />
-        <SkillsList title={'Backend'} items={items.filter((item) => item.category === 'Backend')} />
+        <SkillsList
+          title={'Backend'}
+          items={items.filter((item) => item.category === 'Backend')}
+          motionDelay={0.4}
+        />
       </TooltipProvider>
     </section>
   );

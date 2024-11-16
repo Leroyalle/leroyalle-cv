@@ -13,9 +13,14 @@ export const TechList: React.FC<Props> = ({ techs, className }) => {
   }
 
   return (
-    <ul className={cn('flex flex-wrap gap-2', className)}>
+    <ul className={'flex flex-wrap gap-2'}>
       {techs.map((tech, i) => (
-        <li key={i} className="font-bold p-1 bg-gray-100/30 rounded-xl bg-opacity-60 text-white">
+        <li
+          key={i}
+          className={cn(
+            'font-bold p-1 bg-[#efe9e4] bg-opacity-50 text-sm rounded-md text-white',
+            className,
+          )}>
           {tech.name}
         </li>
       ))}

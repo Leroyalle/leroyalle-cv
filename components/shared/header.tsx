@@ -20,12 +20,15 @@ export const Header: React.FC<Props> = ({ className }) => {
           <nav>
             <ul className="flex items-center gap-x-1">
               <li>
-                <Link className="p-3" href="/projects">
+                <Link className="p-3 nav-item after:bg-foreground" href="/projects">
                   Проекты
                 </Link>
               </li>
               <li>
-                <a className="p-3" href="https://github.com/Leroyalle" target="_blank">
+                <a
+                  className="p-3 hover:opacity-80"
+                  href="https://github.com/Leroyalle"
+                  target="_blank">
                   GitHub
                 </a>
               </li>
