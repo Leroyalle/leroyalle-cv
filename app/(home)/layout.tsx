@@ -1,9 +1,9 @@
-import { Header } from '@/components/shared';
+import { Container, Header } from '@/components/shared';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Nicholas Melonov | Frontend Developer',
-  description: 'Портфолио Frontend-разработчика Nicholas Melonov',
+  title: 'Nikolay Melonov | Frontend Developer',
+  description: 'Портфолио Frontend-разработчика Nikolay Melonov',
 };
 
 export default function HomeLayout({
@@ -13,8 +13,10 @@ export default function HomeLayout({
 }>) {
   return (
     <main className="min-h-screen">
-      <Header />
-      {children}
+      <Container>
+        <Header />
+        {children}
+      </Container>
     </main>
   );
 }

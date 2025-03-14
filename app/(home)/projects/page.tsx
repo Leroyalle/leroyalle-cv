@@ -4,26 +4,31 @@ import { prisma } from '@/prisma/prisma-client';
 import { notFound } from 'next/navigation';
 
 export default async function Projects() {
-  const projects = await prisma.project.findMany({
-    include: {
-      techs: true,
-      projectItem: true,
-    },
-  });
+  try {
+    const projects = await prisma.project.findMany({
+      include: {
+        techs: true,
+        projectItem: true,
+      },
+    });
 
-  if (!projects || projects.length === 0) {
-    return notFound();
+    if (projects.length === 0) {
+      return notFound();
+    }
+
+    return (
+      <Container className="max-w-[800px]">
+        <MotionDiv
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ ease: 'easeInOut', delay: 0.2 }}>
+          <ProjectList projects={projects} />
+        </MotionDiv>
+      </Container>
+    );
+  } catch (err) {
+    console.log(err);
+    return <div>Произошла ошибка получения данных.</div>;
   }
-
-  return (
-    <Container className="max-w-[800px]">
-      <MotionDiv
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ ease: 'easeInOut', delay: 0.2 }}>
-        <ProjectList projects={projects} />
-      </MotionDiv>
-    </Container>
-  );
 }

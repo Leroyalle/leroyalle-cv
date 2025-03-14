@@ -12,7 +12,7 @@ interface Props {
 export const MainInfo: React.FC<Props> = ({ skills, className }) => {
   return (
     <article className={cn('flex flex-col items-center', className)}>
-      <div className="py-14 flex flex-col max-w-[900px] w-full">
+      <div className="py-14 flex flex-col max-w-[1000px] w-full">
         <MotionDiv
           className="text-center"
           initial={{ opacity: 0 }}
