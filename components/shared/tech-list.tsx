@@ -18,7 +18,7 @@ export const TechList: React.FC<Props> = ({ techs, className }) => {
         <li
           key={i}
           className={cn(
-            'font-bold p-1 bg-[#efe9e4] bg-opacity-50 text-sm rounded-md text-white',
+            'font-bold p-1 bg-accent bg-opacity-50 text-sm rounded-md text-foreground',
             className,
           )}>
           {tech.name}

@@ -1,6 +1,8 @@
 import { Contacts, Container, MainInfo } from '@/components/shared';
 import { prisma } from '@/prisma/prisma-client';
 
+export const revalidate = 360;
+
 export default async function Home() {
   try {
     const skills = await prisma.skill.findMany();

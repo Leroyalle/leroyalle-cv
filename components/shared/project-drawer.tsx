@@ -55,36 +55,38 @@ export const ProjectDrawer: React.FC<Props> = ({
             />
           )}
         </div>
-        <div>
-          <h4 className="text-lg font-bold mb-1">О проекте</h4>
-          <p className="text-lg">{projectItem.about}</p>
-        </div>
+        {projectItem.about && (
+          <div>
+            <h4 className="text-lg font-bold mb-1">О проекте</h4>
+            <p className="text-lg">{projectItem.about}</p>
+          </div>
+        )}
 
-        <div className="w-full">
-          <h4 className="text-lg font-bold mb-1">Чем занимался на проекте</h4>
-          <div
-            className="features"
-            dangerouslySetInnerHTML={{ __html: projectItem.featuresList }}
-          />
-        </div>
-        <div className="w-full">
-          <h4 className="text-lg font-bold mb-1">Технологии</h4>
-          <TechList techs={techs} className="text-foreground" />
-        </div>
-        {projectItem.link && (
+        {projectItem.featuresList && (
           <div className="w-full">
-            <h4 className="text-lg font-bold mb-1">Сайт</h4>
-            <a href={projectItem.link} target="_blank">
-              {projectItem.link}
+            <h4 className="text-lg font-bold mb-1">Чем занимался на проекте</h4>
+            <div className="features-wrapper list-disc list-inside pl-5">
+              <div
+                className="features"
+                dangerouslySetInnerHTML={{ __html: projectItem.featuresList }}
+              />
+            </div>
+          </div>
+        )}
+        {!!techs.length && (
+          <div className="w-full">
+            <h4 className="text-lg font-bold mb-1">Технологии</h4>
+            <TechList techs={techs} />
+          </div>
+        )}
+        {projectItem.github && (
+          <div className="w-full">
+            <h4 className="text-lg font-bold mb-1">GitHub</h4>
+            <a href={projectItem.github} target="_blank">
+              {projectItem.github}
             </a>
           </div>
         )}
-        <div className="w-full">
-          <h4 className="text-lg font-bold mb-1">GitHub</h4>
-          <a href={projectItem.github} target="_blank">
-            {projectItem.github}
-          </a>
-        </div>
       </div>
       {projectItem.link && (
         <SheetFooter>

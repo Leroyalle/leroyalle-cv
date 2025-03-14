@@ -3,6 +3,8 @@ import { MotionDiv } from '@/components/shared/motion-div';
 import { prisma } from '@/prisma/prisma-client';
 import { notFound } from 'next/navigation';
 
+export const revalidate = 360;
+
 export default async function Projects() {
   try {
     const projects = await prisma.project.findMany({
