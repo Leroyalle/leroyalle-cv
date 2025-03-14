@@ -15,7 +15,7 @@ export const Contacts: React.FC<Props> = ({ className }) => {
       viewport={{ once: true }}
       transition={{ ease: 'easeInOut', delay: 0.5 }}
       className={cn('flex justify-center w-full', className)}>
-      <div className="max-w-[900px] w-full flex">
+      <div className="max-w-[1000px] w-full flex">
         <ul className="flex flex-wrap gap-x-4 justify-center">
           {contactsData.map((contact, i) => (
             <li key={i}>

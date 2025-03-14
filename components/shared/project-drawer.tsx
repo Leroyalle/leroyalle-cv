@@ -9,6 +9,7 @@ import {
 } from '../ui';
 import { TechList } from './tech-list';
 import { ProjectItem, Tech } from '@prisma/client';
+import { isImage, isVideo } from '@/lib';
 
 interface Props {
   name: string;
@@ -29,21 +30,30 @@ export const ProjectDrawer: React.FC<Props> = ({
     return null;
   }
 
+  console.log(projectItem.imagePreview ?? imageUrl);
+
   return (
     <SheetContent className="overflow-y-auto min-w-full sm:min-w-[500px] text-foreground">
       <SheetHeader className="mb-3">
         <SheetTitle className="text-2xl">{name}</SheetTitle>
-        <SheetDescription className="">
-          <p className="text-lg">{shortDescription}</p>
-        </SheetDescription>
+        <SheetDescription className="text-lg">{shortDescription}</SheetDescription>
       </SheetHeader>
       <div className="flex flex-col items-start gap-y-8 overflow-y-auto mb-6">
         <div className="w-full h-[240px] rounded-lg overflow-hidden">
-          <img
-            src={projectItem.imagePreview ?? imageUrl}
-            alt={name}
-            className="w-full h-full object-cover select-none"
-          />
+          {isImage(projectItem.imagePreview ?? imageUrl) && (
+            <img
+              src={projectItem.imagePreview ?? imageUrl}
+              alt={name}
+              className="w-full h-full object-cover select-none"
+            />
+          )}
+          {isVideo(projectItem.imagePreview ?? imageUrl) && (
+            <video
+              src={projectItem.imagePreview ?? imageUrl}
+              controls
+              className="w-full h-full object-cover select-none"
+            />
+          )}
         </div>
         <div>
           <h4 className="text-lg font-bold mb-1">О проекте</h4>
